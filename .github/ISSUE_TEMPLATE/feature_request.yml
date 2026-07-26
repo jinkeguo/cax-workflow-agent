@@ -1,0 +1,30 @@
+name: Feature request
+description: Propose a bounded CAx adapter, workflow, check, or recovery capability.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Engineering objective
+      description: Describe the workflow outcome rather than only a vendor UI action.
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Proposed inputs and verified outputs
+      description: Identify artifacts, checks, logs, and application evidence the operation should return.
+    validations:
+      required: true
+  - type: textarea
+    id: recovery
+    attributes:
+      label: Expected failure and recovery behavior
+      description: List common failures, safe automatic repairs, and approval boundaries.
+  - type: input
+    id: versions
+    attributes:
+      label: Target application versions
+      placeholder: SolidWorks 2025, HyperMesh 2025, Abaqus 2022

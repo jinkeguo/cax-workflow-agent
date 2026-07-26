@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+build/
+dist/
+
+# Commercial CAx artifacts and solver outputs
+*.SLDPRT
+*.SLDASM
+*.SLDDRW
+*.hm
+*.h3d
+*.odb
+*.sim
+*.lck
+*.sta
+*.msg
+*.dat
+*.prt
+*.log
+
+# Local configuration and generated runs
+.env
+.env.*
+run-output/
+regression-output/

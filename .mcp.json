@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "cae-workflow": {
+      "command": "python",
+      "args": [
+        "./mcp/run_mcp.py"
+      ],
+      "cwd": "."
+    }
+  }
+}

@@ -1,0 +1,59 @@
+name: Bug report
+description: Report a reproducible plugin, adapter, workflow, or recovery failure.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Remove proprietary model data, credentials, user paths, hostnames, and
+        license-server information before submitting logs.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Workflow orchestration
+        - SolidWorks adapter
+        - HyperMesh adapter
+        - Abaqus deck or runtime
+        - Abaqus postprocessing
+        - Diagnosis or recovery knowledge
+        - Packaging or installation
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Include the expected result and the actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: List the commands, MCP tool calls, or safe sample inputs.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Plugin, Python, Windows, Codex, and relevant CAx application versions.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Paste the first causal error and relevant sanitized log excerpt.
+      render: text
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data-safety confirmation
+      options:
+        - label: I removed confidential engineering data and sensitive workstation information.
+          required: true
