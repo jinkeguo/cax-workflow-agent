@@ -27,6 +27,25 @@ class AbaqusRuntimeTests(unittest.TestCase):
         self.assertEqual(result.status, "needs_confirmation")
         self.assertEqual(result.checks["operation"], "submit_abaqus_analysis")
 
+    @patch(
+        "cae_agent.abaqus_runtime.discover_abaqus_command",
+        return_value=None,
+    )
+    def test_submit_preview_does_not_require_abaqus_runtime(self, _discover):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            deck = root / "model.inp"
+            deck.write_text("*HEADING\n", encoding="utf-8")
+            result = submit_abaqus_job(
+                str(deck), str(root / "run"), "portable_preview"
+            )
+        self.assertEqual(result.status, "needs_confirmation")
+        self.assertFalse(result.checks["command_available"])
+        self.assertEqual(result.checks["command"][0], "abaqus")
+        self.assertTrue(
+            any("was not detected" in warning for warning in result.warnings)
+        )
+
     def test_cancel_requires_running_job_and_confirmation(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

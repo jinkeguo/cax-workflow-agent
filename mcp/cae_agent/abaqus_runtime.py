@@ -377,8 +377,9 @@ def submit_abaqus_job(
                 "*INCLUDE dependencies before submission."
             ),
         )
+    abaqus_command = discover_abaqus_command()
     command_preview = [
-        str(_command()),
+        str(abaqus_command) if abaqus_command else "abaqus",
         f"job={job_name}",
         f"input={job_name}.inp",
         "background",
@@ -395,10 +396,19 @@ def submit_abaqus_job(
                 "job_name": job_name,
                 "cpus": cpus,
                 "command": command_preview,
+                "command_available": abaqus_command is not None,
                 "input_bytes": source.stat().st_size,
             },
             warnings=[
-                "Set confirm_submit=true only after datacheck and solve cost review."
+                "Set confirm_submit=true only after datacheck and solve cost review.",
+                *(
+                    [
+                        "Abaqus command was not detected. Configure "
+                        f"{ABAQUS_COMMAND_ENV} before confirmed submission."
+                    ]
+                    if abaqus_command is None
+                    else []
+                ),
             ],
             application={"name": "Abaqus", "version": "unknown"},
             elapsed_seconds=time.monotonic() - started,

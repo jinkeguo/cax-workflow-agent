@@ -6,6 +6,8 @@ The project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+- Fix Abaqus submission previews so the confirmation boundary does not require
+  a locally installed Abaqus runtime.
 - Continue expanding guided HyperMesh partition, ply, and source-target
   workflows.
 - Add tested application-version evidence for additional workstation
