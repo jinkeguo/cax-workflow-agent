@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1",
+  "case_id": "step-repair-practice",
+  "objective": "Create and verify a layered step-repair laminate workflow",
+  "units": {
+    "length": "mm",
+    "force": "N",
+    "stress": "MPa"
+  },
+  "solver": {
+    "name": "Abaqus",
+    "profile": "Standard3D"
+  },
+  "stages": {
+    "cad": {
+      "status": "passed",
+      "evidence": ["geometry report"]
+    },
+    "mesh": {
+      "status": "in_progress",
+      "evidence": []
+    },
+    "deck": {
+      "status": "pending",
+      "evidence": []
+    },
+    "solve": {
+      "status": "pending",
+      "evidence": []
+    },
+    "post": {
+      "status": "pending",
+      "evidence": []
+    }
+  },
+  "artifacts": [
+    {
+      "path": "study-step-repair.hm",
+      "role": "native-preprocessor-model",
+      "produced_by": "HyperMesh 2025"
+    }
+  ]
+}

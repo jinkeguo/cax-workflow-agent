@@ -1,0 +1,22 @@
+[project]
+name = "cax-workflow-agent"
+version = "0.1.0"
+description = "Bounded MCP adapters for traceable CAD-to-simulation workflows"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "pywin32>=306; platform_system == 'Windows'",
+]
+
+[project.scripts]
+cax-workflow-agent-mcp = "cae_agent.mcp_server:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["mcp"]
+
+[tool.setuptools.package-data]
+cae_agent = ["solidworks_bridge.ps1"]

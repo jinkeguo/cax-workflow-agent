@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.1",
+  "case_id": "step-repair-cad-example",
+  "units": {
+    "length": "mm"
+  },
+  "models": [
+    {
+      "role": "parent-plate",
+      "template_path": "templates/step-repair-parent-template.sldprt",
+      "output_native_path": "artifacts/step-repair-parent.sldprt",
+      "export_path": "artifacts/step-repair-parent.step",
+      "dimensions_mm": {
+        "D1@ParentPlateSketch": 100.0,
+        "D2@ParentPlateSketch": 20.0,
+        "D1@ParentPlateExtrude": 2.0,
+        "D1@Step01Sketch": 12.0,
+        "D2@Step01Sketch": 8.0,
+        "D1@Step02Sketch": 20.0,
+        "D2@Step02Sketch": 12.0,
+        "D1@Step03Sketch": 28.0,
+        "D2@Step03Sketch": 16.0,
+        "D1@Step04Sketch": 36.0,
+        "D2@Step04Sketch": 20.0
+      }
+    },
+    {
+      "role": "repair-patch",
+      "template_path": "templates/step-repair-patch-template.sldprt",
+      "output_native_path": "artifacts/step-repair-patch.sldprt",
+      "export_path": "artifacts/step-repair-patch.step",
+      "dimensions_mm": {
+        "D1@PatchStep01Sketch": 12.0,
+        "D2@PatchStep01Sketch": 8.0,
+        "D1@PatchStep02Sketch": 20.0,
+        "D2@PatchStep02Sketch": 12.0,
+        "D1@PatchStep03Sketch": 28.0,
+        "D2@PatchStep03Sketch": 16.0,
+        "D1@PatchStep04Sketch": 36.0,
+        "D2@PatchStep04Sketch": 20.0,
+        "D1@PatchPlyExtrude": 0.25
+      }
+    }
+  ],
+  "notes": [
+    "Dimension names are a public template contract, not automatic guesses.",
+    "The example does not include proprietary SolidWorks template files.",
+    "Inspect every template before applying these parameters."
+  ]
+}
